@@ -327,6 +327,53 @@
     padding-top:16px;
   }
 
+  /* ---------- Credentials ---------- */
+  .credentials-head{
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .credentials-head h2{
+    font-size:1.9rem;
+    line-height:1.32;
+  }
+  .credential-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .credential{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-top:1px solid var(--border);
+  }
+  .credential-list .credential:last-child{
+    border-bottom:1px solid var(--border);
+  }
+  .credential-year{
+    font-family:var(--mono);
+    font-size:0.95rem;
+    color:var(--terracotta);
+    letter-spacing:0.02em;
+  }
+  .credential-body h3{
+    font-family:var(--sans);
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--brown);
+    margin:0 0 8px;
+  }
+  .credential-body p{
+    margin:0 0 4px;
+    font-size:0.94rem;
+    color:var(--body);
+  }
+  .credential-body p:last-child{ margin-bottom:0; }
+  .credential-meta{
+    font-size:0.85rem;
+    color:var(--secondary);
+  }
+
   /* ---------- Services ---------- */
   .services-head{
     max-width:640px;
@@ -611,6 +658,7 @@
     .btn{ width:100%; }
     .contact-row{ flex-direction:column; align-items:stretch; }
     .portfolio-head{ flex-direction:column; align-items:flex-start; }
+    .credential{ grid-template-columns:1fr; gap:8px; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -724,6 +772,42 @@
           <span class="num">IDR 8M+</span>
           <span class="label">Documented Paid Freelance Earnings</span>
           <p class="note">Based on available payout records from paid proofreading, editing, and translation work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <div class="wrap">
+      <p class="eyebrow">Credentials</p>
+      <div class="credentials-head">
+        <h2>Certifications &amp; recognition.</h2>
+      </div>
+      <div class="credential-list">
+        <div class="credential">
+          <span class="credential-year">2025</span>
+          <div class="credential-body">
+            <h3>Senior Service Quality Officer (SSQO)</h3>
+            <p>BNSP — Badan Nasional Sertifikasi Profesi</p>
+            <p class="credential-meta">Issued March 2025 · Valid for 3 years</p>
+          </div>
+        </div>
+        <div class="credential">
+          <span class="credential-year">2025</span>
+          <div class="credential-body">
+            <h3>Indonesia Customer Service Champion — Excellent</h3>
+            <p>Awarded to PT Karya Tetangga Tuku</p>
+            <p class="credential-meta">Issued by SWA Media Group</p>
+          </div>
+        </div>
+        <div class="credential">
+          <span class="credential-year">2024</span>
+          <div class="credential-body">
+            <h3>Indonesia Customer Service Champion — Good</h3>
+            <p>Awarded to PT Karya Tetangga Tuku</p>
+            <p class="credential-meta">Issued by SWA Media Group</p>
+          </div>
         </div>
       </div>
     </div>
