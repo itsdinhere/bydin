@@ -3,28 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nidaa — Customer Experience &amp; Reporting</title>
+<title>Nidaa · CX &amp; Reporting</title>
+<meta name="description" content="Nidaa — Customer Experience, Reporting &amp; Dashboarding. Turning customer feedback and service data into reports teams can actually use.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,560;1,9..144,420&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 
-  /* ============ Design tokens ============ */
   :root{
-    --cream: #F7F1EB;
-    --card: #FFFDFC;
-    --terracotta: #B85C3A;
-    --brown: #3A241C;
-    --beige: #EADBCF;
-    --border: #E6D8CE;
-    --text: #3B3330;
-    --text-soft: #796C66;
+    --cream:#F7F1EB;
+    --card:#FFFDFC;
+    --terracotta:#B85C3A;
+    --brown:#3A241C;
+    --beige:#EADBCF;
+    --border:#E6D8CE;
+    --body:#3B3330;
+    --secondary:#796C66;
 
-    --serif: 'Fraunces', Georgia, serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
-
-    --max: 1100px;
+    --serif: "Fraunces", "Iowan Old Style", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "Space Mono", "SFMono-Regular", monospace;
   }
 
   *{ box-sizing:border-box; }
@@ -33,750 +31,856 @@
   body{
     margin:0;
     background:var(--cream);
-    color:var(--text);
+    color:var(--body);
     font-family:var(--sans);
-    font-size:16px;
-    line-height:1.65;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
 
+  img{ max-width:100%; display:block; }
+
   a{ color:inherit; }
 
-  img, .placeholder{ max-width:100%; display:block; }
+  :focus-visible{
+    outline:2px solid var(--terracotta);
+    outline-offset:3px;
+  }
 
   .wrap{
-    max-width:var(--max);
+    max-width:1160px;
     margin:0 auto;
     padding:0 32px;
   }
 
-  section{ padding:96px 0; }
-  section + section{ border-top:1px solid var(--border); }
-
-  h1,h2,h3{
-    font-family:var(--serif);
-    font-weight:500;
-    color:var(--brown);
-    margin:0;
-  }
-
+  /* ---------- Eyebrow / section label ---------- */
   .eyebrow{
     font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.12em;
+    font-weight:700;
+    font-size:0.98rem;
+    letter-spacing:0.06em;
     text-transform:uppercase;
-    color:var(--terracotta);
-    margin:0 0 18px 0;
+    color:var(--brown);
     display:flex;
     align-items:center;
     gap:12px;
+    margin-bottom:22px;
   }
-  .eyebrow::after{
+  .eyebrow::before{
     content:"";
-    flex:1;
+    width:26px;
     height:1px;
-    background:var(--border);
+    background:var(--terracotta);
+    display:inline-block;
   }
 
-  .section-head{
-    max-width:640px;
-    margin-bottom:56px;
+  section{
+    padding:110px 0;
+    border-bottom:1px solid var(--border);
+    scroll-margin-top:96px;
   }
-  .section-head h2{
-    font-size:clamp(28px, 3.4vw, 38px);
-    line-height:1.2;
-  }
-  .section-head p{
-    color:var(--text-soft);
-    font-size:17px;
-    margin-top:16px;
+  section:last-of-type{ border-bottom:none; }
+
+  #top{ scroll-margin-top:0; }
+
+  h1,h2,h3{
+    font-family:var(--serif);
+    color:var(--brown);
+    margin:0;
+    font-weight:560;
+    letter-spacing:-0.01em;
   }
 
-  /* ============ Placeholder blocks ============ */
-  .placeholder{
-    background:var(--beige);
-    border:1px dashed #C9AF98;
-    border-radius:6px;
-    color:#8A6F58;
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.03em;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    padding:24px;
-  }
-  .placeholder .ph-icon{ font-size:22px; opacity:0.7; }
-  .placeholder .ph-dims{ opacity:0.65; }
-
-  /* ============ Header / nav ============ */
+  /* ---------- Header ---------- */
   header{
-    padding:28px 0;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(247,241,235,0.92);
+    backdrop-filter:saturate(150%) blur(10px);
+    border-bottom:1px solid var(--border);
   }
-  .nav-row{
+  .nav-inner{
+    max-width:1160px;
+    margin:0 auto;
+    padding:20px 32px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
   }
   .brand{
     font-family:var(--serif);
-    font-size:20px;
+    font-size:1.18rem;
     color:var(--brown);
-    letter-spacing:0.01em;
+    font-weight:560;
+    text-decoration:none;
+    letter-spacing:-0.01em;
   }
-  .brand em{ color:var(--terracotta); font-style:italic; }
+  .brand em{
+    font-style:normal;
+    color:var(--terracotta);
+    font-weight:400;
+    margin:0 2px;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:36px;
+    margin:0;
+    padding:0;
+  }
   nav a{
     text-decoration:none;
-    font-size:14px;
-    color:var(--text-soft);
-    margin-left:28px;
+    color:var(--body);
+    font-size:0.92rem;
+    font-weight:500;
+    letter-spacing:0.01em;
+    padding-bottom:3px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
   }
-  nav a:hover{ color:var(--terracotta); }
-  .nav-links{ display:flex; }
+  nav a:hover{ border-color:var(--terracotta); color:var(--terracotta); }
 
-  /* ============ Hero ============ */
-  .hero{ padding-top:48px; padding-bottom:80px; }
+  .nav-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding-top:88px;
+  }
   .hero-grid{
     display:grid;
-    grid-template-columns:280px 1fr;
-    gap:64px;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:72px;
     align-items:center;
   }
   .hero-portrait{
+    position:relative;
     aspect-ratio:4/5;
-    border-radius:14px;
     overflow:hidden;
+    border-radius:6px;
+    background:var(--beige);
   }
-  .hero-portrait img{ width:100%; height:100%; object-fit:cover; }
-  .hero-caption{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--text-soft);
-    margin-top:12px;
-    letter-spacing:0.03em;
-  }
-  .hero-copy .kicker{
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--terracotta);
-    margin-bottom:20px;
+  .hero-portrait img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
   }
   .hero-copy h1{
-    font-size:clamp(34px, 5vw, 54px);
-    line-height:1.12;
-    letter-spacing:-0.01em;
+    font-size:2.5rem;
+    line-height:1.28;
+    margin-bottom:26px;
   }
-  .hero-copy h1 .accent{
+  .hero-copy h1 em{
     font-style:italic;
     color:var(--terracotta);
-    font-weight:400;
+    font-weight:420;
   }
-  .hero-copy p.lede{
-    font-size:18px;
-    color:var(--text-soft);
-    max-width:560px;
-    margin-top:22px;
+  .hero-copy p{
+    font-size:1.04rem;
+    color:var(--body);
+    max-width:52ch;
+    margin:0 0 16px;
   }
-  .hero-copy p.lede strong{ color:var(--text); font-weight:600; }
-
-  /* ============ Stat row (editorial, not boxed) ============ */
-  .stats{
-    padding-top:0;
-    padding-bottom:72px;
-  }
-  .stats-row{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-  }
-  .stat{
-    padding:0 28px;
-    border-left:1px solid var(--border);
-  }
-  .stat:first-child{ border-left:none; padding-left:0; }
-  .stat .num{
-    font-family:var(--serif);
-    font-size:clamp(30px, 3.6vw, 40px);
-    color:var(--brown);
-    font-weight:500;
-    line-height:1;
-  }
-  .stat .label{
-    margin-top:10px;
-    font-size:13.5px;
-    color:var(--text-soft);
-    line-height:1.4;
-  }
-
-  /* ============ What I Do ============ */
-  .whatido-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    align-items:center;
-  }
-  .whatido-copy p{ color:var(--text-soft); font-size:16.5px; }
-  .whatido-copy p strong{ color:var(--text); font-weight:600; }
-  .typical-list{
+  .hero-copy p:last-of-type{ margin-bottom:0; }
+  .hero-role{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    color:var(--secondary);
+    letter-spacing:0.03em;
     margin-top:28px;
-    padding:0;
-    list-style:none;
+  }
+
+  /* ---------- At a glance ---------- */
+  .glance-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .metric{
+    background:var(--card);
+    padding:38px 28px;
+  }
+  .metric .num{
+    font-family:var(--serif);
+    font-size:2.5rem;
+    color:var(--terracotta);
+    font-weight:480;
+    display:block;
+    margin-bottom:12px;
+  }
+  .metric .label{
+    font-family:var(--sans);
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--brown);
+    line-height:1.45;
+  }
+
+  /* ---------- What I Do ---------- */
+  .split{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:10px 20px;
+    gap:72px;
+    align-items:start;
   }
-  .typical-list li{
-    font-size:14.5px;
-    color:var(--text);
-    padding-left:16px;
+  .split h2{
+    font-size:1.9rem;
+    line-height:1.32;
+    margin-bottom:22px;
+  }
+  .split p{ margin:0 0 16px; color:var(--body); }
+
+  .core-list{
+    list-style:none;
+    margin:28px 0 0;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+  }
+  .core-list li{
+    font-size:0.94rem;
+    color:var(--body);
+    padding-left:18px;
     position:relative;
   }
-  .typical-list li::before{
+  .core-list li::before{
     content:"—";
     position:absolute;
     left:0;
     color:var(--terracotta);
   }
-  .dash-visual{
-    aspect-ratio:4/3;
-    border-radius:14px;
+
+  .frame{
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:6px;
+    padding:10px;
+  }
+  .frame .shot{
+    border-radius:3px;
+    overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .teaser-shot{
+    aspect-ratio:16/11;
     overflow:hidden;
   }
-  .dash-visual img{ width:100%; height:100%; object-fit:cover; }
-  .dash-caption{
-    font-family:var(--serif);
+  .teaser-shot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+    transform:scale(1.32);
+    transform-origin:top center;
+  }
+  figcaption{
+    font-size:0.83rem;
+    color:var(--secondary);
     font-style:italic;
-    font-size:15px;
-    color:var(--text-soft);
-    margin-top:14px;
-    text-align:center;
+    padding:14px 6px 4px;
   }
 
-  /* ============ Communication background ============ */
+  /* ---------- Communication background ---------- */
   .comm-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    align-items:center;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:72px;
+    align-items:start;
   }
-  .comm-visual{
-    aspect-ratio:4/3;
-    border-radius:14px;
-    overflow:hidden;
+  .comm-grid h2{
+    font-size:1.9rem;
+    line-height:1.32;
+    margin-bottom:22px;
   }
-  .comm-visual img{ width:100%; height:100%; object-fit:cover; }
-  .comm-copy p{ color:var(--text-soft); font-size:16.5px; }
-  .comm-copy p strong{ color:var(--text); font-weight:600; }
-  .proof-callout{
-    margin-top:28px;
-    padding:18px 22px;
-    background:var(--card);
+  .comm-grid p{ margin:0 0 16px; }
+
+  .proof-card{
     border:1px solid var(--border);
-    border-radius:10px;
-    font-family:var(--mono);
-    font-size:13px;
-    color:var(--brown);
-    letter-spacing:0.01em;
+    background:var(--card);
+    border-radius:6px;
+    padding:34px 32px;
   }
-  .proof-note{
-    margin-top:14px;
-    font-size:12.5px;
-    color:var(--text-soft);
+  .proof-card .num{
+    font-family:var(--serif);
+    font-size:2.6rem;
+    color:var(--terracotta);
+    display:block;
+    margin-bottom:10px;
+  }
+  .proof-card .label{
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--brown);
+  }
+  .proof-card .note{
+    margin-top:18px;
+    font-size:0.85rem;
+    color:var(--secondary);
     font-style:italic;
+    border-top:1px solid var(--border);
+    padding-top:16px;
   }
 
-  /* ============ Services ============ */
+  /* ---------- Services ---------- */
+  .services-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .services-head h2{
+    font-size:1.9rem;
+    line-height:1.32;
+  }
   .service-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:1px;
     background:var(--border);
     border:1px solid var(--border);
-    border-radius:14px;
+    border-radius:6px;
     overflow:hidden;
   }
   .service{
     background:var(--card);
-    padding:32px;
+    padding:36px 34px;
   }
   .service .idx{
     font-family:var(--mono);
-    font-size:12px;
     color:var(--terracotta);
-    margin-bottom:14px;
+    font-size:0.85rem;
     display:block;
+    margin-bottom:14px;
   }
   .service h3{
-    font-size:19px;
+    font-family:var(--sans);
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--brown);
     margin-bottom:10px;
   }
   .service p{
-    font-size:14.5px;
-    color:var(--text-soft);
+    font-size:0.92rem;
+    color:var(--secondary);
     margin:0;
   }
 
-  /* ============ Portfolio ============ */
-  .portfolio-list{
+  /* ---------- Portfolio ---------- */
+  .portfolio-head{
     display:flex;
-    flex-direction:column;
-    gap:56px;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:12px;
+    flex-wrap:wrap;
   }
-  .portfolio-item{
-    display:grid;
-    grid-template-columns:340px 1fr;
-    gap:44px;
-    align-items:center;
+  .portfolio-head h2{
+    font-size:2.1rem;
   }
-  .portfolio-item:nth-child(even){
-    grid-template-columns:1fr 340px;
-  }
-  .portfolio-item:nth-child(even) .portfolio-visual{ order:2; }
-  .portfolio-visual{
-    aspect-ratio:16/10;
-    border-radius:12px;
-    overflow:hidden;
-  }
-  .portfolio-visual img{ width:100%; height:100%; object-fit:cover; }
-  .portfolio-copy .tag{
+  .project-tags{
     font-family:var(--mono);
-    font-size:11.5px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--terracotta);
-    margin-bottom:10px;
-    display:block;
+    font-size:0.8rem;
+    color:var(--secondary);
+    letter-spacing:0.01em;
   }
-  .portfolio-copy h3{
-    font-size:22px;
+  .project-title{
+    font-family:var(--sans);
+    font-size:1.3rem;
+    font-weight:600;
+    color:var(--brown);
+    margin:22px 0 14px;
+  }
+  .project-desc{
+    max-width:74ch;
+    color:var(--body);
+    margin:0 0 44px;
+  }
+
+  .collage{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    grid-template-rows:auto auto;
+    gap:18px;
+  }
+  .collage .main-shot{
+    grid-row:1 / 3;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:6px;
+    padding:10px;
+  }
+  .collage .main-shot .shot{
+    border-radius:3px;
+    overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .collage .detail-shot{
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:6px;
+    padding:10px;
+  }
+  .collage .detail-shot .shot{
+    border-radius:3px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    aspect-ratio:16/10;
+  }
+  .collage .detail-shot .shot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    background:#fff;
+  }
+  .collage figcaption{
+    padding:14px 8px 2px;
+  }
+
+  .disclosure{
+    margin-top:30px;
+    font-size:0.85rem;
+    color:var(--secondary);
+    font-style:italic;
+    border-left:2px solid var(--terracotta);
+    padding-left:16px;
+  }
+
+  /* ---------- How I Work ---------- */
+  .how-head{
+    max-width:680px;
+    margin-bottom:60px;
+  }
+  .how-head p{ margin:0 0 14px; color:var(--body); }
+
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:48px;
+  }
+  .step .idx{
+    font-family:var(--mono);
+    color:var(--terracotta);
+    font-size:0.9rem;
+    display:block;
+    margin-bottom:20px;
+  }
+  .step h3{
+    font-family:var(--sans);
+    font-size:1.08rem;
+    font-weight:600;
+    color:var(--brown);
     margin-bottom:12px;
   }
-  .portfolio-copy p{
-    font-size:15.5px;
-    color:var(--text-soft);
+  .step p{
+    font-size:0.94rem;
+    color:var(--secondary);
+    margin:0;
   }
 
-  /* ============ How I work ============ */
-  .work-steps{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:0;
-    border-top:1px solid var(--border);
-    margin-top:8px;
-  }
-  .work-step{
-    padding:28px 24px 0 0;
-    border-right:1px solid var(--border);
-  }
-  .work-step:last-child{ border-right:none; }
-  .work-step .step-num{
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--terracotta);
-  }
-  .work-step p.q{
-    font-family:var(--serif);
-    font-size:19px;
-    color:var(--brown);
-    margin-top:12px;
-    line-height:1.3;
-  }
-  .work-lede{
-    max-width:640px;
-    color:var(--text-soft);
-    font-size:16.5px;
-    margin-top:16px;
-  }
-  .work-lede strong{ color:var(--text); font-weight:600; }
-
-  /* ============ Tools ============ */
-  .tools-row{
+  /* ---------- Tools ---------- */
+  .tool-chips{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
   }
-  .tool-pill{
+  .tool-chips span{
     font-family:var(--mono);
-    font-size:13px;
-    color:var(--brown);
-    background:var(--card);
-    border:1px solid var(--border);
+    font-size:0.85rem;
     padding:10px 18px;
-    border-radius:100px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    background:var(--card);
+    color:var(--brown);
   }
 
-  /* ============ CTA ============ */
-  .cta-section{
-    text-align:center;
-    padding:110px 0;
+  /* ---------- Contact ---------- */
+  .contact{
+    text-align:left;
   }
-  .cta-section blockquote{
-    font-family:var(--serif);
-    font-style:italic;
-    font-weight:400;
-    font-size:clamp(24px, 3.6vw, 36px);
+  .contact h2{
+    font-size:2.3rem;
+    line-height:1.3;
+    max-width:16ch;
+    margin-bottom:22px;
+  }
+  .contact .sub{
+    font-weight:600;
     color:var(--brown);
-    max-width:780px;
-    margin:0 auto;
-    line-height:1.35;
+    margin-bottom:8px;
   }
-  .cta-section .cta-sub{
-    margin-top:28px;
-    color:var(--text-soft);
-    font-size:15.5px;
+  .contact .areas{
+    color:var(--secondary);
+    font-size:0.92rem;
+    margin-bottom:44px;
   }
-  .cta-button{
-    display:inline-block;
-    margin-top:32px;
-    padding:15px 34px;
-    background:var(--terracotta);
-    color:#FFFDFC;
+  .contact-row{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+    margin-bottom:48px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 30px;
+    border-radius:4px;
     font-family:var(--sans);
     font-weight:600;
-    font-size:14.5px;
+    font-size:0.95rem;
     text-decoration:none;
-    border-radius:100px;
-    letter-spacing:0.01em;
+    transition:opacity .2s ease, transform .2s ease;
   }
-  .cta-button:hover{ background:#A34F30; }
+  .btn-primary{
+    background:var(--terracotta);
+    color:#FFFDFC;
+    border:1px solid var(--terracotta);
+  }
+  .btn-primary:hover{ opacity:0.9; }
+  .btn-secondary{
+    background:transparent;
+    color:var(--brown);
+    border:1px solid var(--brown);
+  }
+  .btn-secondary:hover{ background:var(--beige); }
 
-  /* ============ Contact / footer ============ */
-  footer{
-    padding:56px 0 40px;
-  }
-  .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:start;
-  }
-  .contact-grid h3{ font-size:20px; margin-bottom:14px; }
-  .interest-list{
-    font-size:14.5px;
-    color:var(--text-soft);
-  }
-  .contact-detail{
-    font-size:14.5px;
-    color:var(--text-soft);
-    margin-top:6px;
-  }
-  .contact-detail strong{ color:var(--text); }
-  .footnote{
-    margin-top:56px;
-    padding-top:24px;
+  .contact-meta{
+    display:flex;
+    gap:48px;
+    flex-wrap:wrap;
+    font-size:0.9rem;
+    color:var(--secondary);
     border-top:1px solid var(--border);
-    font-size:12.5px;
-    color:var(--text-soft);
-    font-style:italic;
+    padding-top:26px;
   }
-  .copyright{
-    margin-top:18px;
-    font-size:12.5px;
-    color:var(--text-soft);
+  .contact-meta strong{
+    display:block;
+    color:var(--brown);
+    font-weight:600;
+    margin-bottom:4px;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
   }
 
-  /* ============ Responsive ============ */
-  @media (max-width: 860px){
-    section{ padding:64px 0; }
-    .hero-grid{ grid-template-columns:1fr; gap:32px; }
-    .hero-portrait{ max-width:220px; }
-    .stats-row{ grid-template-columns:1fr 1fr; row-gap:32px; }
-    .stat{ border-left:none; padding-left:0; }
-    .stat:nth-child(odd){ border-right:1px solid var(--border); }
-    .whatido-grid, .comm-grid{ grid-template-columns:1fr; gap:36px; }
-    .typical-list{ grid-template-columns:1fr; }
+  footer{
+    padding:32px 0 40px;
+    text-align:center;
+    font-size:0.8rem;
+    color:var(--secondary);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .wrap{ padding:0 24px; }
+    section{ padding:80px 0; }
+    .hero-grid{ grid-template-columns:1fr; gap:40px; }
+    .hero-portrait{ max-width:340px; }
+    .split, .comm-grid{ grid-template-columns:1fr; gap:40px; }
     .service-grid{ grid-template-columns:1fr; }
-    .portfolio-item, .portfolio-item:nth-child(even){
-      grid-template-columns:1fr;
-    }
-    .portfolio-item:nth-child(even) .portfolio-visual{ order:0; }
-    .work-steps{ grid-template-columns:1fr 1fr; row-gap:28px; }
-    .work-step{ border-right:none; padding-right:0; }
-    .work-step:nth-child(odd){ border-right:1px solid var(--border); padding-right:24px; }
-    .contact-grid{ grid-template-columns:1fr; }
-    nav a{ margin-left:16px; font-size:13px; }
+    .glance-grid{ grid-template-columns:1fr 1fr; }
+    .collage{ grid-template-columns:1fr; }
+    .collage .main-shot{ grid-row:auto; }
+    .steps{ grid-template-columns:1fr; gap:40px; }
+    nav ul{ gap:22px; }
+    .nav-inner{ padding:16px 24px; flex-wrap:wrap; gap:12px; }
+    section{ scroll-margin-top:120px; }
   }
 
-  @media (max-width: 480px){
-    .wrap{ padding:0 20px; }
-    .stats-row{ grid-template-columns:1fr 1fr; }
-    .work-steps{ grid-template-columns:1fr; }
-    .work-step{ border-right:none !important; padding-right:0 !important; }
+  @media (max-width:640px){
+    .hero-copy h1{ font-size:1.9rem; }
+    .glance-grid{ grid-template-columns:1fr 1fr; }
+    .metric{ padding:28px 20px; }
+    .core-list{ grid-template-columns:1fr; }
+    nav ul{ gap:16px; flex-wrap:wrap; justify-content:center; }
+    .nav-inner{ flex-direction:column; align-items:flex-start; }
+    section{ scroll-margin-top:150px; }
+    .contact h2{ font-size:1.9rem; max-width:none; }
+    .btn{ width:100%; }
+    .contact-row{ flex-direction:column; align-items:stretch; }
+    .portfolio-head{ flex-direction:column; align-items:flex-start; }
   }
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap nav-row">
-    <div class="brand">Nidaa <em>· CX &amp; Reporting</em></div>
-    <nav class="nav-links">
-      <a href="#what-i-do">What I Do</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
+  <div class="nav-inner">
+    <a class="brand" href="#top">Nidaa <em>·</em> CX &amp; Reporting</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#what-i-do">What I Do</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="hero-portrait placeholder">
-        <!-- IMAGE PLACEHOLDER: Hero portrait — replace with a professional headshot -->
-        <span class="ph-icon">◐</span>
-        <span>HERO PORTRAIT</span>
-        <span class="ph-dims">recommended 800×1000px</span>
-      </div>
-      <div class="hero-caption">Customer Experience &amp; Reporting</div>
-    </div>
-    <div class="hero-copy">
-      <div class="kicker">About Me</div>
-      <h1>Where <span class="accent">customer experience</span> meets data and communication.</h1>
-      <p class="lede">I'm a Customer Experience &amp; Reporting professional with <strong>7 years of paid experience</strong> working across customer relations, service operations, reporting, and customer feedback analysis. My work sits at the intersection of customer experience, data, and communication — I turn complex information into clear insights so teams can understand what's happening, why it matters, and what to do next.</p>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<!-- ============ STATS ============ -->
-<section class="stats">
-  <div class="wrap">
-    <div class="eyebrow">At a Glance</div>
-    <div class="stats-row">
-      <div class="stat">
-        <div class="num">7 Years</div>
-        <div class="label">Customer Relations &amp; CX Experience</div>
-      </div>
-      <div class="stat">
-        <div class="num">40K+</div>
-        <div class="label">Customer interactions annually</div>
-      </div>
-      <div class="stat">
-        <div class="num">75+</div>
-        <div class="label">Store locations supported</div>
-      </div>
-      <div class="stat">
-        <div class="num">IDR 8M+</div>
-        <div class="label">Documented paid freelance earnings</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHAT I DO ============ -->
-<section id="what-i-do">
-  <div class="wrap">
-    <div class="whatido-grid">
-      <div class="whatido-copy">
-        <div class="eyebrow">What I Do</div>
-        <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:18px;">Making sense of customer feedback and service metrics.</h2>
-        <p>I support <strong>high-volume customer operations</strong> across multiple channels and help make sense of customer feedback, complaint trends, and service metrics.</p>
-        <p>I build <strong>dashboards</strong>, prepare <strong>monthly performance reports</strong>, monitor <strong>SLA and CSAT</strong>, and create <strong>stakeholder-ready presentations</strong> to drive data-informed decisions. I also work cross-functionally with Operations, Quality, Brand, and other teams to translate customer insights into service and process improvements.</p>
-        <ul class="typical-list">
-          <li>Customer experience reporting</li>
-          <li>Complaint and feedback analysis</li>
-          <li>KPI, SLA, and CSAT monitoring</li>
-          <li>Google Sheets reporting and data organization</li>
-          <li>Looker Studio dashboards</li>
-          <li>Monthly and periodic performance reports</li>
-          <li>Stakeholder-ready presentations</li>
-          <li>SOP and process documentation</li>
-          <li>Root cause identification and service improvement recommendations</li>
-        </ul>
-      </div>
-      <div>
-        <div class="dash-visual placeholder">
-          <!-- IMAGE PLACEHOLDER: Dashboard / laptop mockup for "What I Do" section -->
-          <span class="ph-icon">▤</span>
-          <span>DASHBOARD / LAPTOP MOCKUP</span>
-          <span class="ph-dims">recommended 1200×900px</span>
+  <!-- HERO / ABOUT -->
+  <section class="hero" id="about">
+    <div class="wrap">
+      <p class="eyebrow">About Me</p>
+      <div class="hero-grid">
+        <div class="hero-portrait">
+          <img src="images/nidaa-portrait.jpg" alt="Portrait of Nidaa, smiling, wearing a black blazer">
         </div>
-        <div class="dash-caption">Turning customer data into clear, actionable reporting.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMMUNICATION BACKGROUND ============ -->
-<section>
-  <div class="wrap">
-    <div class="comm-grid">
-      <div>
-        <div class="comm-visual placeholder">
-          <!-- IMAGE PLACEHOLDER: Communication / writing / editing visual -->
-          <span class="ph-icon">✎</span>
-          <span>WRITING / EDITING VISUAL</span>
-          <span class="ph-dims">recommended 1000×750px</span>
-        </div>
-      </div>
-      <div class="comm-copy">
-        <div class="eyebrow">Communication Background</div>
-        <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:18px;">My background in English Literature and professional writing.</h2>
-        <p>My background in <strong>English Literature and professional writing</strong> shaped the way I communicate findings.</p>
-        <p>Before focusing more deeply on Customer Experience, I completed multiple paid freelance projects in <strong>proofreading</strong>, <strong>document editing</strong>, and <strong>translation</strong>. Across the paid freelance records I still have available, the documented earnings exceed IDR 8 million.</p>
-        <p>That experience still shows up in my work today — especially when I need to turn complex information into clear reports, documentation, presentations, or communication for different audiences.</p>
-        <div class="proof-callout">IDR 8M+ in documented paid freelance earnings</div>
-        <div class="proof-note">Based on documented payout records from paid proofreading, editing, and translation work. Raw payout screenshots, bank information, and transaction details are not displayed publicly.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">What I Can Help You With</div>
-      <h2>Six ways I can support your customer experience work.</h2>
-    </div>
-    <div class="service-grid">
-      <div class="service">
-        <span class="idx">01</span>
-        <h3>Google Sheets Reporting</h3>
-        <p>Clean, organize, structure, and analyze customer or operational data so it is easier to use and understand.</p>
-      </div>
-      <div class="service">
-        <span class="idx">02</span>
-        <h3>Looker Studio Dashboards</h3>
-        <p>Build clear, practical dashboards for customer experience, complaint trends, service performance, and operational reporting.</p>
-      </div>
-      <div class="service">
-        <span class="idx">03</span>
-        <h3>Customer Feedback Analysis</h3>
-        <p>Identify recurring patterns, themes, customer pain points, and opportunities for improvement.</p>
-      </div>
-      <div class="service">
-        <span class="idx">04</span>
-        <h3>KPI, SLA &amp; Performance Reporting</h3>
-        <p>Track key metrics and turn performance data into reports that are easier for teams and stakeholders to act on.</p>
-      </div>
-      <div class="service">
-        <span class="idx">05</span>
-        <h3>Complaint &amp; Root Cause Analysis</h3>
-        <p>Go beyond counting complaints by identifying what is driving recurring issues and where teams should focus next.</p>
-      </div>
-      <div class="service">
-        <span class="idx">06</span>
-        <h3>Process &amp; SOP Documentation</h3>
-        <p>Turn workflows and operational knowledge into clear, practical documentation that supports consistency and easier execution.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PORTFOLIO ============ -->
-<section id="portfolio">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Portfolio Highlights</div>
-      <h2>Selected case studies.</h2>
-    </div>
-    <div class="portfolio-list">
-      <div class="portfolio-item">
-        <div class="portfolio-visual placeholder">
-          <!-- IMAGE PLACEHOLDER: Portfolio project 1 — CX dashboard screenshot -->
-          <span class="ph-icon">▦</span>
-          <span>DASHBOARD SCREENSHOT</span>
-          <span class="ph-dims">recommended 1200×750px</span>
-        </div>
-        <div class="portfolio-copy">
-          <span class="tag">Synthetic Portfolio Project</span>
-          <h3>Customer Experience Dashboard &amp; Order Issue Analysis</h3>
-          <p>A synthetic portfolio project demonstrating how I structure customer support data in Google Sheets and turn it into an interactive Looker Studio dashboard covering ticket volume, response time, resolution time, CSAT, SLA performance, severity, channels, and recurring order issues.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <div class="portfolio-visual placeholder">
-          <!-- IMAGE PLACEHOLDER: Portfolio project 2 — feedback/root cause mapping visual -->
-          <span class="ph-icon">◈</span>
-          <span>ROOT CAUSE MAPPING VISUAL</span>
-          <span class="ph-dims">recommended 1200×750px</span>
-        </div>
-        <div class="portfolio-copy">
-          <span class="tag">Case Study</span>
-          <h3>Customer Feedback Analysis &amp; Root Cause Mapping</h3>
-          <p>A portfolio case study focused on turning qualitative customer feedback into themes, root causes, priorities, and actionable recommendations.</p>
+        <div class="hero-copy">
+          <h1>Where <em>customer experience</em> meets data and communication.</h1>
+          <p>I started in customer-facing roles, but over the years I became just as interested in what happens behind the conversations — the patterns in complaints, the numbers behind service performance, and the decisions teams make from customer feedback.</p>
+          <p>Today, I work across customer experience, reporting, and communication, turning messy information into reports, dashboards, and insights that teams can actually use.</p>
+          <p class="hero-role">Customer Experience · Reporting · Dashboarding · Jakarta, Indonesia</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ HOW I WORK ============ -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">How I Work</div>
-    <h2 style="font-size:clamp(26px,3vw,34px); max-width:640px;">Not just organizing information, but turning it into a clear story.</h2>
-    <p class="work-lede">I enjoy taking information that is messy or scattered — <strong>customer complaints, feedback, raw spreadsheets, performance metrics, or process notes</strong> — and turning it into something structured, readable, and useful.</p>
-    <div class="work-steps">
-      <div class="work-step">
-        <span class="step-num">01</span>
-        <p class="q">What is happening?</p>
-      </div>
-      <div class="work-step">
-        <span class="step-num">02</span>
-        <p class="q">Where is the issue?</p>
-      </div>
-      <div class="work-step">
-        <span class="step-num">03</span>
-        <p class="q">Why does it matter?</p>
-      </div>
-      <div class="work-step">
-        <span class="step-num">04</span>
-        <p class="q">What should be looked at next?</p>
+  <!-- AT A GLANCE -->
+  <section id="glance">
+    <div class="wrap">
+      <p class="eyebrow">At a Glance</p>
+      <div class="glance-grid">
+        <div class="metric">
+          <span class="num">6+ Years</span>
+          <span class="label">Customer Relations &amp; CX Experience</span>
+        </div>
+        <div class="metric">
+          <span class="num">40K+</span>
+          <span class="label">Customer Interactions Annually</span>
+        </div>
+        <div class="metric">
+          <span class="num">75+</span>
+          <span class="label">Store Locations Supported</span>
+        </div>
+        <div class="metric">
+          <span class="num">IDR 8M+</span>
+          <span class="label">Documented Paid Freelance Earnings</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ TOOLS ============ -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Tools</div>
-    <div class="tools-row">
-      <span class="tool-pill">Google Sheets</span>
-      <span class="tool-pill">Looker Studio</span>
-      <span class="tool-pill">Zendesk</span>
-      <span class="tool-pill">Google Workspace</span>
-      <span class="tool-pill">Canva</span>
-      <span class="tool-pill">Microsoft PowerPoint / Google Slides</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CTA ============ -->
-<section class="cta-section">
-  <div class="wrap">
-    <blockquote>"If your customer data exists but the story behind it is still unclear, that's usually where I can help."</blockquote>
-    <div class="cta-sub">Available for remote freelance projects.</div>
-    <a href="#contact" class="cta-button">Get in Touch</a>
-  </div>
-</section>
-
-<!-- ============ CONTACT / FOOTER ============ -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <h3>Available for remote freelance projects</h3>
-        <p class="interest-list">Areas of interest: Customer Experience · Reporting · Dashboarding · Customer Insights · Process Documentation</p>
-      </div>
-      <div>
-        <div class="contact-detail"><strong>Email:</strong> your-email@example.com</div>
-        <div class="contact-detail"><strong>Location:</strong> Indonesia</div>
+  <!-- WHAT I DO -->
+  <section id="what-i-do">
+    <div class="wrap">
+      <p class="eyebrow">What I Do</p>
+      <div class="split">
+        <div>
+          <h2>Making sense of customer feedback and service metrics.</h2>
+          <p>I work with customer feedback, complaint trends, service metrics, and operational reports on a regular basis. A lot of the job is figuring out what keeps happening, what changed, and where the biggest friction is.</p>
+          <p>That usually means building dashboards, preparing monthly reports, monitoring SLA and CSAT, and turning scattered operational data into something more useful for decision-making.</p>
+          <p>I also work closely with Operations, Quality, Brand, and other teams, so the reporting does not stop at "what happened" — it needs to help answer what should be looked at next.</p>
+          <ul class="core-list">
+            <li>Customer experience reporting</li>
+            <li>Complaint &amp; feedback analysis</li>
+            <li>KPI, SLA &amp; CSAT monitoring</li>
+            <li>Google Sheets reporting</li>
+            <li>Looker Studio dashboards</li>
+            <li>SOP &amp; process documentation</li>
+          </ul>
+        </div>
+        <figure class="frame">
+          <div class="shot teaser-shot">
+            <img src="images/portfolio-dashboard-main.png" alt="Cropped view of an Order Issues dashboard, focused on KPI cards and the monthly ticket trend chart">
+          </div>
+          <figcaption>An example of my CX reporting work using synthetic customer support data.</figcaption>
+        </figure>
       </div>
     </div>
-    <div class="footnote">Note: Portfolio case studies may use fictional brands and synthetic data for demonstration purposes. No confidential company or customer information is displayed publicly.</div>
-    <div class="copyright">© 2026 Nidaa. All rights reserved.</div>
+  </section>
+
+  <!-- COMMUNICATION BACKGROUND -->
+  <section id="communication">
+    <div class="wrap">
+      <p class="eyebrow">Communication Background</p>
+      <div class="comm-grid">
+        <div>
+          <h2>My background in English Literature and professional writing.</h2>
+          <p>My degree is in English Literature, and before moving deeper into Customer Experience, I also took on paid freelance work in proofreading, document editing, and translation.</p>
+          <p>That background shaped how I work with information today. I pay attention not only to what the data says, but also to how clearly it is structured, written, and presented for the people who need to use it.</p>
+          <p>Across the freelance records I still have, those language-related projects generated more than <strong>IDR 8 million in documented earnings</strong>.</p>
+        </div>
+        <div class="proof-card">
+          <span class="num">IDR 8M+</span>
+          <span class="label">Documented Paid Freelance Earnings</span>
+          <p class="note">Based on available payout records from paid proofreading, editing, and translation work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">What I Can Help You With</p>
+      <div class="services-head">
+        <h2>Six ways I can support your customer experience work.</h2>
+      </div>
+      <div class="service-grid">
+        <div class="service">
+          <span class="idx">01</span>
+          <h3>Google Sheets Reporting</h3>
+          <p>Clean, organize, structure, and analyze customer or operational data so it is easier to use and understand.</p>
+        </div>
+        <div class="service">
+          <span class="idx">02</span>
+          <h3>Looker Studio Dashboards</h3>
+          <p>Build clear, practical dashboards for customer experience, complaint trends, service performance, and operational reporting.</p>
+        </div>
+        <div class="service">
+          <span class="idx">03</span>
+          <h3>Customer Feedback Analysis</h3>
+          <p>Identify recurring patterns, themes, customer pain points, and opportunities for improvement.</p>
+        </div>
+        <div class="service">
+          <span class="idx">04</span>
+          <h3>KPI, SLA &amp; Performance Reporting</h3>
+          <p>Track key metrics and turn performance data into reports that are easier for teams and stakeholders to act on.</p>
+        </div>
+        <div class="service">
+          <span class="idx">05</span>
+          <h3>Complaint &amp; Root Cause Analysis</h3>
+          <p>Go beyond counting complaints by identifying what is driving recurring issues and where teams should focus next.</p>
+        </div>
+        <div class="service">
+          <span class="idx">06</span>
+          <h3>Process &amp; SOP Documentation</h3>
+          <p>Turn workflows and operational knowledge into clear, practical documentation that supports consistency and easier execution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="portfolio-head">
+        <div>
+          <p class="eyebrow">Portfolio Highlights</p>
+          <h2>Selected work.</h2>
+        </div>
+      </div>
+
+      <p class="project-tags">Google Sheets · Looker Studio · Data Visualization · CX Reporting</p>
+      <h3 class="project-title">Customer Experience Dashboard &amp; Order Issue Analysis</h3>
+      <p class="project-desc">Built from 500+ synthetic customer support records to explore ticket trends, response and resolution time, CSAT, SLA performance, severity, channels, and recurring order issues. This project demonstrates how I structure raw customer support data in Google Sheets and turn it into an interactive Looker Studio dashboard designed for clearer CX monitoring and reporting.</p>
+
+      <div class="collage">
+        <figure class="main-shot">
+          <div class="shot">
+            <img src="images/portfolio-dashboard-main.png" alt="Order Issues dashboard showing filters, KPI cards for total tickets, response time, CSAT and SLA, and a monthly ticket trend chart">
+          </div>
+          <figcaption>Order Issues Dashboard — KPI cards &amp; monthly ticket trend.</figcaption>
+        </figure>
+        <figure class="detail-shot">
+          <div class="shot">
+            <img src="images/portfolio-issue-breakdown.png" alt="Bar chart of issue subcategories: damaged or leaking product, late delivery, missing item, wrong item, order not received, refund or replacement issue">
+          </div>
+          <figcaption>Issue subcategory breakdown.</figcaption>
+        </figure>
+        <figure class="detail-shot">
+          <div class="shot">
+            <img src="images/portfolio-channel-breakdown.png" alt="Bar chart of support channel breakdown: WhatsApp, Instagram, Marketplace Chat, Email">
+          </div>
+          <figcaption>Channel breakdown.</figcaption>
+        </figure>
+      </div>
+
+      <p class="disclosure">This is a fictional portfolio project built with synthetic customer support data for demonstration purposes. No confidential company or customer data is shown.</p>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section id="how-i-work">
+    <div class="wrap">
+      <p class="eyebrow">How I Work</p>
+      <div class="how-head">
+        <p>I usually start by looking for patterns — what keeps coming up, what changed, and where the biggest friction is.</p>
+        <p>From there, I organize the data, check the context behind the numbers, and turn the findings into something useful for the people who need to act on it.</p>
+        <p>Sometimes that means a dashboard. Sometimes it is a monthly report, a complaint analysis, or a recommendation for the next step.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="idx">01</span>
+          <h3>Find the pattern</h3>
+          <p>Look at recurring issues, changes, and signals that need attention.</p>
+        </div>
+        <div class="step">
+          <span class="idx">02</span>
+          <h3>Add context</h3>
+          <p>Connect the numbers with customer feedback and operational reality.</p>
+        </div>
+        <div class="step">
+          <span class="idx">03</span>
+          <h3>Make it usable</h3>
+          <p>Turn the findings into a dashboard, report, or recommendation teams can actually use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="wrap">
+      <p class="eyebrow">Tools</p>
+      <div class="tool-chips">
+        <span>Google Sheets</span>
+        <span>Looker Studio</span>
+        <span>Zendesk</span>
+        <span>Google Workspace</span>
+        <span>Canva</span>
+        <span>Microsoft PowerPoint / Google Slides</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>If the data is there but the direction isn't, I can help make sense of it.</h2>
+      <p class="sub">Available for remote freelance projects and short-term collaborations.</p>
+      <p class="areas">Customer Experience · Reporting · Dashboarding · Customer Insights · Process Documentation</p>
+
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:hainidaa@gmail.com">Get in Touch</a>
+        <a class="btn btn-secondary" href="https://wa.me/6285761845553?text=Hi%20Nidaa%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+
+      <div class="contact-meta">
+        <div>
+          <strong>Email</strong>
+          hainidaa@gmail.com
+        </div>
+        <div>
+          <strong>Location</strong>
+          Indonesia
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 Nidaa. All rights reserved.
   </div>
 </footer>
 
