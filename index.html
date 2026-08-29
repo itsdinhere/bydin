@@ -269,16 +269,13 @@
     border:1px solid var(--border);
   }
   .teaser-shot{
-    aspect-ratio:16/11;
-    overflow:hidden;
+    background:#fff;
   }
   .teaser-shot img{
     width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:top center;
-    transform:scale(1.32);
-    transform-origin:top center;
+    height:auto;
+    display:block;
+    object-fit:contain;
   }
   figcaption{
     font-size:0.83rem;
@@ -420,6 +417,13 @@
     border-radius:3px;
     overflow:hidden;
     border:1px solid var(--border);
+    background:#fff;
+  }
+  .collage .main-shot .shot img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
   }
   .collage .detail-shot{
     border:1px solid var(--border);
@@ -431,13 +435,13 @@
     border-radius:3px;
     overflow:hidden;
     border:1px solid var(--border);
-    aspect-ratio:16/10;
+    background:#fff;
   }
   .collage .detail-shot .shot img{
     width:100%;
-    height:100%;
-    object-fit:cover;
-    background:#fff;
+    height:auto;
+    display:block;
+    object-fit:contain;
   }
   .collage figcaption{
     padding:14px 8px 2px;
