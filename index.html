@@ -189,6 +189,9 @@
     letter-spacing:0.03em;
     margin-top:28px;
   }
+  .hero-cta{
+    margin-top:22px;
+  }
 
   /* ---------- At a glance ---------- */
   .glance-grid{
@@ -652,12 +655,10 @@
     font-size:0.92rem;
     margin-bottom:44px;
   }
-  .contact-row{
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-    align-items:center;
-    margin-bottom:48px;
+  .platform-note{
+    color:var(--secondary);
+    font-size:0.92rem;
+    margin:0 0 48px;
   }
   .btn{
     display:inline-flex;
@@ -671,12 +672,6 @@
     text-decoration:none;
     transition:opacity .2s ease, transform .2s ease;
   }
-  .btn-primary{
-    background:var(--terracotta);
-    color:#FFFDFC;
-    border:1px solid var(--terracotta);
-  }
-  .btn-primary:hover{ opacity:0.9; }
   .btn-secondary{
     background:transparent;
     color:var(--brown);
@@ -740,7 +735,6 @@
     .btn{ width:100%; }
     .case-study-btn{ width:auto; }
     .project-info div{ grid-template-columns:1fr; gap:4px; }
-    .contact-row{ flex-direction:column; align-items:stretch; }
     .portfolio-head{ flex-direction:column; align-items:flex-start; }
     .credential{ grid-template-columns:1fr; gap:8px; }
   }
@@ -761,7 +755,7 @@
         <li><a href="#what-i-do">What I Do</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Availability</a></li>
       </ul>
     </nav>
   </div>
@@ -778,10 +772,11 @@
           <img src="images/nidaa-portrait.jpg" alt="Portrait of Nidaa, smiling, wearing a black blazer">
         </div>
         <div class="hero-copy">
-          <h1>Where <em>customer experience</em> meets data and communication.</h1>
+          <h1>Where <em>customer experience</em> meets data, language, and communication.</h1>
           <p>I started in customer-facing roles, but over the years I became just as interested in what happens behind the conversations — the patterns in complaints, the numbers behind service performance, and the decisions teams make from customer feedback.</p>
           <p>Today, I work across customer experience, reporting, and communication, turning messy information into reports, dashboards, and insights that teams can actually use.</p>
-          <p class="hero-role">Customer Experience · Reporting · Dashboarding · Jakarta, Indonesia</p>
+          <p class="hero-role">Customer Experience · Reporting · Translation &amp; Editing · Jakarta, Indonesia</p>
+          <a class="btn btn-secondary hero-cta" href="#portfolio">View Selected Work</a>
         </div>
       </div>
     </div>
@@ -902,7 +897,7 @@
     <div class="wrap">
       <p class="eyebrow">What I Can Help You With</p>
       <div class="services-head">
-        <h2>Six ways I can support your customer experience work.</h2>
+        <h2>How I can support your work.</h2>
       </div>
       <div class="service-grid">
         <div class="service">
@@ -934,6 +929,16 @@
           <span class="idx">06</span>
           <h3>Process &amp; SOP Documentation</h3>
           <p>Turn workflows and operational knowledge into clear, practical documentation that supports consistency and easier execution.</p>
+        </div>
+        <div class="service">
+          <span class="idx">07</span>
+          <h3>English–Indonesian Translation</h3>
+          <p>Natural, context-aware translation for documents, reports, guides, and long-form content.</p>
+        </div>
+        <div class="service">
+          <span class="idx">08</span>
+          <h3>Editing &amp; Proofreading</h3>
+          <p>Review English or Indonesian documents for clarity, consistency, grammar, structure, and readability.</p>
         </div>
       </div>
     </div>
@@ -1092,14 +1097,10 @@
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <p class="eyebrow">Contact</p>
-      <h2>Looking for support with customer experience or reporting?</h2>
-      <p class="sub">Available for remote freelance projects and short-term collaborations across customer experience, reporting, dashboards, and customer insights.</p>
-
-      <div class="contact-row">
-        <a class="btn btn-primary" href="mailto:hainidaa@gmail.com">Email Me</a>
-        <a class="btn btn-secondary" href="https://wa.me/6285761845553?text=Hi%20Nidaa%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-      </div>
+      <p class="eyebrow">Availability</p>
+      <h2>Available for freelance projects and short-term collaborations.</h2>
+      <p class="sub">I'm available for work across customer experience, reporting, dashboards, customer insights, English–Indonesian translation, editing, and proofreading.</p>
+      <p class="platform-note">If you found this portfolio through Upwork or another freelance platform, please contact me directly through that platform.</p>
 
       <div class="contact-meta">
         <div>Based in Indonesia · Available remotely</div>
