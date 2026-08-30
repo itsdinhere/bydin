@@ -556,6 +556,33 @@
     padding:13px 26px;
     font-size:0.88rem;
   }
+  .project-info{
+    display:grid;
+    gap:14px;
+    margin:28px 0 36px;
+    padding:24px 0;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .project-info div{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:16px;
+  }
+  .project-info dt{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--brown);
+    margin:0;
+  }
+  .project-info dd{
+    margin:0;
+    font-size:0.92rem;
+    color:var(--body);
+  }
 
   /* ---------- How I Work ---------- */
   .how-head{
@@ -712,6 +739,7 @@
     .contact h2{ font-size:1.9rem; max-width:none; }
     .btn{ width:100%; }
     .case-study-btn{ width:auto; }
+    .project-info div{ grid-template-columns:1fr; gap:4px; }
     .contact-row{ flex-direction:column; align-items:stretch; }
     .portfolio-head{ flex-direction:column; align-items:flex-start; }
     .credential{ grid-template-columns:1fr; gap:8px; }
@@ -988,6 +1016,31 @@
         <a class="btn btn-secondary case-study-btn" href="case-studies/customer-feedback-root-cause.pdf" target="_blank" rel="noopener noreferrer">View Full Case Study</a>
 
         <p class="disclosure">This is a fictional portfolio project built with synthetic customer support data for demonstration purposes. No confidential company or customer data is shown.</p>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-block">
+        <p class="project-number">Project 03</p>
+        <p class="project-tags">English → Indonesian · Translation · Editing · Proofreading</p>
+        <h3 class="project-title">English–Indonesian Translation Portfolio</h3>
+        <p class="project-desc">A selected long-form English-to-Indonesian translation project focused on preserving meaning, maintaining consistent terminology, and producing clear, natural Indonesian. The complete portfolio presents paired source and translated excerpts together with an overview of the editing and proofreading approach.</p>
+
+        <dl class="project-info">
+          <div>
+            <dt>Language Pair</dt>
+            <dd>English → Indonesian</dd>
+          </div>
+          <div>
+            <dt>Services</dt>
+            <dd>Translation, Editing &amp; Proofreading</dd>
+          </div>
+          <div>
+            <dt>Primary Focus</dt>
+            <dd>Meaning Preservation · Terminology Consistency · Readability</dd>
+          </div>
+        </dl>
+
+        <a class="btn btn-secondary case-study-btn" href="case-studies/nidaa-english-indonesian-translation-portfolio.pdf" target="_blank" rel="noopener noreferrer">View Translation Portfolio</a>
       </div>
     </div>
   </section>
