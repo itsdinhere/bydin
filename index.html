@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nidaa · CX &amp; Reporting</title>
-<meta name="description" content="Nidaa — Customer Experience, Reporting &amp; Dashboarding. Turning customer feedback and service data into reports teams can actually use.">
+<title>Nidaa · CX, Reporting &amp; Language Services</title>
+<meta name="description" content="Nidaa — Customer Experience, reporting, dashboards, English–Indonesian translation, editing, and proofreading.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,560;1,9..144,420&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -102,24 +102,33 @@
   .nav-inner{
     max-width:1160px;
     margin:0 auto;
-    padding:20px 32px;
+    padding:15px 32px;
     display:flex;
     align-items:center;
     justify-content:space-between;
   }
   .brand{
-    font-family:var(--serif);
-    font-size:1.18rem;
-    color:var(--brown);
-    font-weight:560;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
     text-decoration:none;
-    letter-spacing:-0.01em;
+    line-height:1.15;
   }
-  .brand em{
-    font-style:normal;
+  .brand-name{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    font-weight:700;
     color:var(--terracotta);
-    font-weight:400;
-    margin:0 2px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+  }
+  .brand-title{
+    font-family:var(--serif);
+    font-size:1.28rem;
+    font-weight:560;
+    color:var(--brown);
+    letter-spacing:-0.01em;
+    white-space:nowrap;
   }
   nav ul{
     list-style:none;
@@ -182,12 +191,13 @@
     margin:0 0 16px;
   }
   .hero-copy p:last-of-type{ margin-bottom:0; }
-  .hero-role{
+  .hero-location{
     font-family:var(--mono);
     font-size:0.85rem;
     color:var(--secondary);
     letter-spacing:0.03em;
     margin-top:28px;
+    white-space:nowrap;
   }
   .hero-cta{
     margin-top:22px;
@@ -655,10 +665,12 @@
     font-size:0.92rem;
     margin-bottom:44px;
   }
-  .platform-note{
-    color:var(--secondary);
-    font-size:0.92rem;
-    margin:0 0 48px;
+  .contact-row{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+    margin-bottom:48px;
   }
   .btn{
     display:inline-flex;
@@ -672,6 +684,12 @@
     text-decoration:none;
     transition:opacity .2s ease, transform .2s ease;
   }
+  .btn-primary{
+    background:var(--terracotta);
+    color:#FFFDFC;
+    border:1px solid var(--terracotta);
+  }
+  .btn-primary:hover{ opacity:0.9; }
   .btn-secondary{
     background:transparent;
     color:var(--brown);
@@ -706,6 +724,11 @@
   }
 
   /* ---------- Responsive ---------- */
+  @media (max-width:1080px){
+    .brand-title{ font-size:1.12rem; }
+    nav ul{ gap:26px; }
+  }
+
   @media (max-width:900px){
     .wrap{ padding:0 24px; }
     section{ padding:80px 0; }
@@ -720,7 +743,7 @@
     .findings{ grid-template-columns:1fr; gap:24px; }
     nav ul{ gap:22px; }
     .nav-inner{ padding:16px 24px; flex-wrap:wrap; gap:12px; }
-    section{ scroll-margin-top:120px; }
+    section{ scroll-margin-top:130px; }
   }
 
   @media (max-width:640px){
@@ -730,10 +753,13 @@
     .core-list{ grid-template-columns:1fr; }
     nav ul{ gap:16px; flex-wrap:wrap; justify-content:center; }
     .nav-inner{ flex-direction:column; align-items:flex-start; }
-    section{ scroll-margin-top:150px; }
+    section{ scroll-margin-top:165px; }
+    .brand{ max-width:100%; }
+    .brand-title{ font-size:0.85rem; max-width:100%; }
     .contact h2{ font-size:1.9rem; max-width:none; }
     .btn{ width:100%; }
     .case-study-btn{ width:auto; }
+    .contact-row{ flex-direction:column; align-items:stretch; }
     .project-info div{ grid-template-columns:1fr; gap:4px; }
     .portfolio-head{ flex-direction:column; align-items:flex-start; }
     .credential{ grid-template-columns:1fr; gap:8px; }
@@ -749,13 +775,16 @@
 
 <header>
   <div class="nav-inner">
-    <a class="brand" href="#top">Nidaa <em>·</em> CX &amp; Reporting</a>
+    <a class="brand" href="#top">
+      <span class="brand-name">Nidaa</span>
+      <span class="brand-title">CX · Reporting · Language Services</span>
+    </a>
     <nav aria-label="Primary">
       <ul>
         <li><a href="#what-i-do">What I Do</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Availability</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -775,7 +804,7 @@
           <h1>Where <em>customer experience</em> meets data, language, and communication.</h1>
           <p>I started in customer-facing roles, but over the years I became just as interested in what happens behind the conversations — the patterns in complaints, the numbers behind service performance, and the decisions teams make from customer feedback.</p>
           <p>Today, I work across customer experience, reporting, and communication, turning messy information into reports, dashboards, and insights that teams can actually use.</p>
-          <p class="hero-role">Customer Experience · Reporting · Translation &amp; Editing · Jakarta, Indonesia</p>
+          <p class="hero-location">Jakarta, Indonesia</p>
           <a class="btn btn-secondary hero-cta" href="#portfolio">View Selected Work</a>
         </div>
       </div>
@@ -1097,10 +1126,14 @@
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <p class="eyebrow">Availability</p>
-      <h2>Available for freelance projects and short-term collaborations.</h2>
-      <p class="sub">I'm available for work across customer experience, reporting, dashboards, customer insights, English–Indonesian translation, editing, and proofreading.</p>
-      <p class="platform-note">If you found this portfolio through Upwork or another freelance platform, please contact me directly through that platform.</p>
+      <p class="eyebrow">Contact</p>
+      <h2>Looking for support with customer experience, reporting, or language services?</h2>
+      <p class="sub">Available for remote freelance projects and short-term collaborations across customer experience, reporting, dashboards, customer insights, English–Indonesian translation, editing, and proofreading.</p>
+
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:hainidaa@gmail.com">Email Me</a>
+        <a class="btn btn-secondary" href="https://wa.me/6285761845553?text=Hi%20Nidaa%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
 
       <div class="contact-meta">
         <div>Based in Indonesia · Available remotely</div>
