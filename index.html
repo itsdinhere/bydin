@@ -503,6 +503,60 @@
     padding-left:16px;
   }
 
+  .project-block + .project-block{
+    margin-top:64px;
+    padding-top:56px;
+    border-top:1px solid var(--border);
+  }
+  .project-number{
+    font-family:var(--mono);
+    font-size:0.8rem;
+    font-weight:700;
+    color:var(--terracotta);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    margin:0 0 12px;
+  }
+  .project-tools{
+    font-family:var(--mono);
+    font-size:0.8rem;
+    color:var(--secondary);
+    letter-spacing:0.01em;
+    margin:0 0 30px;
+  }
+  .project2-preview{
+    max-width:640px;
+    margin:0 0 36px;
+  }
+  .findings{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    padding:28px 0;
+    margin:8px 0 36px;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .finding .num{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    color:var(--terracotta);
+    display:block;
+    margin-bottom:8px;
+    line-height:1.3;
+  }
+  .finding p{
+    font-size:0.86rem;
+    color:var(--secondary);
+    margin:0;
+  }
+  .case-study-btn{
+    display:inline-flex;
+    margin:4px 0 36px;
+    padding:13px 26px;
+    font-size:0.88rem;
+  }
+
   /* ---------- How I Work ---------- */
   .how-head{
     max-width:680px;
@@ -641,6 +695,7 @@
     .collage{ grid-template-columns:1fr; }
     .collage .main-shot{ grid-row:auto; }
     .steps{ grid-template-columns:1fr; gap:40px; }
+    .findings{ grid-template-columns:1fr; gap:24px; }
     nav ul{ gap:22px; }
     .nav-inner{ padding:16px 24px; flex-wrap:wrap; gap:12px; }
     section{ scroll-margin-top:120px; }
@@ -656,6 +711,7 @@
     section{ scroll-margin-top:150px; }
     .contact h2{ font-size:1.9rem; max-width:none; }
     .btn{ width:100%; }
+    .case-study-btn{ width:auto; }
     .contact-row{ flex-direction:column; align-items:stretch; }
     .portfolio-head{ flex-direction:column; align-items:flex-start; }
     .credential{ grid-template-columns:1fr; gap:8px; }
@@ -865,32 +921,74 @@
         </div>
       </div>
 
-      <p class="project-tags">Google Sheets · Looker Studio · Data Visualization · CX Reporting</p>
-      <h3 class="project-title">Customer Experience Dashboard &amp; Order Issue Analysis</h3>
-      <p class="project-desc">Built from 500+ synthetic customer support records to explore ticket trends, response and resolution time, CSAT, SLA performance, severity, channels, and recurring order issues. This project demonstrates how I structure raw customer support data in Google Sheets and turn it into an interactive Looker Studio dashboard designed for clearer CX monitoring and reporting.</p>
+      <!-- PROJECT 1 -->
+      <div class="project-block">
+        <p class="project-number">Project 01</p>
+        <p class="project-tags">Google Sheets · Looker Studio · Data Visualization · CX Reporting</p>
+        <h3 class="project-title">Customer Experience Dashboard &amp; Order Issue Analysis</h3>
+        <p class="project-desc">Built from 500+ synthetic customer support records to explore ticket trends, response and resolution time, CSAT, SLA performance, severity, channels, and recurring order issues. This project demonstrates how I structure raw customer support data in Google Sheets and turn it into an interactive Looker Studio dashboard designed for clearer CX monitoring and reporting.</p>
 
-      <div class="collage">
-        <figure class="main-shot">
-          <div class="shot">
-            <img src="images/portfolio-dashboard-main.png" alt="Order Issues dashboard showing filters, KPI cards for total tickets, response time, CSAT and SLA, and a monthly ticket trend chart">
-          </div>
-          <figcaption>Order Issues Dashboard — KPI cards &amp; monthly ticket trend.</figcaption>
-        </figure>
-        <figure class="detail-shot">
-          <div class="shot">
-            <img src="images/portfolio-issue-breakdown.png" alt="Bar chart of issue subcategories: damaged or leaking product, late delivery, missing item, wrong item, order not received, refund or replacement issue">
-          </div>
-          <figcaption>Issue subcategory breakdown.</figcaption>
-        </figure>
-        <figure class="detail-shot">
-          <div class="shot">
-            <img src="images/portfolio-channel-breakdown.png" alt="Bar chart of support channel breakdown: WhatsApp, Instagram, Marketplace Chat, Email">
-          </div>
-          <figcaption>Channel breakdown.</figcaption>
-        </figure>
+        <div class="collage">
+          <figure class="main-shot">
+            <div class="shot">
+              <img src="images/portfolio-dashboard-main.png" alt="Order Issues dashboard showing filters, KPI cards for total tickets, response time, CSAT and SLA, and a monthly ticket trend chart">
+            </div>
+            <figcaption>Order Issues Dashboard — KPI cards &amp; monthly ticket trend.</figcaption>
+          </figure>
+          <figure class="detail-shot">
+            <div class="shot">
+              <img src="images/portfolio-issue-breakdown.png" alt="Bar chart of issue subcategories: damaged or leaking product, late delivery, missing item, wrong item, order not received, refund or replacement issue">
+            </div>
+            <figcaption>Issue subcategory breakdown.</figcaption>
+          </figure>
+          <figure class="detail-shot">
+            <div class="shot">
+              <img src="images/portfolio-channel-breakdown.png" alt="Bar chart of support channel breakdown: WhatsApp, Instagram, Marketplace Chat, Email">
+            </div>
+            <figcaption>Channel breakdown.</figcaption>
+          </figure>
+        </div>
+
+        <p class="disclosure">This is a fictional portfolio project built with synthetic customer support data for demonstration purposes. No confidential company or customer data is shown.</p>
       </div>
 
-      <p class="disclosure">This is a fictional portfolio project built with synthetic customer support data for demonstration purposes. No confidential company or customer data is shown.</p>
+      <!-- PROJECT 2 -->
+      <div class="project-block">
+        <p class="project-number">Project 02</p>
+        <p class="project-tags">Google Sheets · Customer Feedback Analysis · Root Cause Analysis · CX Reporting · Canva</p>
+        <h3 class="project-title">Customer Feedback Analysis &amp; Root Cause Mapping</h3>
+        <p class="project-desc">A synthetic customer experience case study analyzing 522 customer complaint tickets to identify recurring issue patterns, compare CSAT and resolution performance, map likely operational root causes, and recommend practical next steps.</p>
+
+        <figure class="frame project2-preview">
+          <div class="shot teaser-shot">
+            <img src="images/customer-feedback-case-study-preview.png" alt="Cover slide preview of the Customer Feedback Analysis and Root Cause Mapping case study">
+          </div>
+          <figcaption>Case study preview — the full five-slide breakdown is available in the linked PDF.</figcaption>
+        </figure>
+
+        <div class="findings">
+          <div class="finding">
+            <span class="num">122 tickets</span>
+            <p>Damaged / Leaking Product was the most frequently reported issue.</p>
+          </div>
+          <div class="finding">
+            <span class="num">2.7 CSAT · 24.02 hrs</span>
+            <p>Order Not Received had the lowest average CSAT and the longest average resolution time.</p>
+          </div>
+          <div class="finding">
+            <span class="num">181 tickets</span>
+            <p>Delivery was the largest mapped root cause category.</p>
+          </div>
+        </div>
+
+        <p class="project-desc">The analysis combines complaint volume, customer satisfaction, and resolution time to show that the highest-volume issue is not always the issue creating the weakest customer experience. The final case study translates those findings into operational priorities across delivery, fulfillment, packaging, and process.</p>
+
+        <p class="project-tools">Tools — Google Sheets · Pivot Tables · Canva</p>
+
+        <a class="btn btn-secondary case-study-btn" href="case-studies/customer-feedback-root-cause.pdf" target="_blank" rel="noopener noreferrer">View Full Case Study</a>
+
+        <p class="disclosure">This is a fictional portfolio project built with synthetic customer support data for demonstration purposes. No confidential company or customer data is shown.</p>
+      </div>
     </div>
   </section>
 
