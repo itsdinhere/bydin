@@ -13,7 +13,9 @@
   :root{
     --cream:#F7F1EB;
     --card:#FFFDFC;
-    --terracotta:#B85C3A;
+    --plum:#5A2A46;
+    --plum-dark:#432036;
+    --plum-tint:#EFE5EA;
     --brown:#3A241C;
     --beige:#EADBCF;
     --border:#E6D8CE;
@@ -42,7 +44,7 @@
   a{ color:inherit; }
 
   :focus-visible{
-    outline:2px solid var(--terracotta);
+    outline:2px solid var(--plum);
     outline-offset:3px;
   }
 
@@ -69,7 +71,7 @@
     content:"";
     width:26px;
     height:1px;
-    background:var(--terracotta);
+    background:var(--plum);
     display:inline-block;
   }
 
@@ -118,7 +120,7 @@
     font-family:var(--mono);
     font-size:0.72rem;
     font-weight:700;
-    color:var(--terracotta);
+    color:var(--plum);
     text-transform:uppercase;
     letter-spacing:0.12em;
   }
@@ -139,15 +141,27 @@
   }
   nav a{
     text-decoration:none;
-    color:var(--body);
+    background:var(--plum);
+    color:#FFFDFC;
     font-size:0.92rem;
     font-weight:500;
     letter-spacing:0.01em;
-    padding-bottom:3px;
-    border-bottom:1px solid transparent;
-    transition:border-color .2s ease, color .2s ease;
+    padding:8px 16px;
+    border:1px solid var(--plum);
+    border-radius:4px;
+    transition:background-color .2s ease, border-color .2s ease;
   }
-  nav a:hover{ border-color:var(--terracotta); color:var(--terracotta); }
+  nav a:hover{
+    background:var(--plum-dark);
+    border-color:var(--plum-dark);
+    color:#FFFDFC;
+  }
+  nav a.active,
+  nav a[aria-current="page"]{
+    background:var(--plum-dark);
+    border-color:var(--plum-dark);
+    color:#FFFDFC;
+  }
 
   .nav-toggle{ display:none; }
 
@@ -181,7 +195,7 @@
   }
   .hero-copy h1 em{
     font-style:italic;
-    color:var(--terracotta);
+    color:var(--plum);
     font-weight:420;
   }
   .hero-copy p{
@@ -220,7 +234,7 @@
   .metric .num{
     font-family:var(--serif);
     font-size:2.5rem;
-    color:var(--terracotta);
+    color:var(--plum);
     font-weight:480;
     display:block;
     margin-bottom:12px;
@@ -267,7 +281,7 @@
     content:"—";
     position:absolute;
     left:0;
-    color:var(--terracotta);
+    color:var(--plum);
   }
 
   .frame{
@@ -320,7 +334,7 @@
   .proof-card .num{
     font-family:var(--serif);
     font-size:2.6rem;
-    color:var(--terracotta);
+    color:var(--plum);
     display:block;
     margin-bottom:10px;
   }
@@ -366,7 +380,7 @@
   .credential-year{
     font-family:var(--mono);
     font-size:0.95rem;
-    color:var(--terracotta);
+    color:var(--plum);
     letter-spacing:0.02em;
   }
   .credential-body h3{
@@ -411,7 +425,7 @@
   }
   .service .idx{
     font-family:var(--mono);
-    color:var(--terracotta);
+    color:var(--plum);
     font-size:0.85rem;
     display:block;
     margin-bottom:14px;
@@ -512,7 +526,7 @@
     font-size:0.85rem;
     color:var(--secondary);
     font-style:italic;
-    border-left:2px solid var(--terracotta);
+    border-left:2px solid var(--plum);
     padding-left:16px;
   }
 
@@ -525,7 +539,7 @@
     font-family:var(--mono);
     font-size:0.8rem;
     font-weight:700;
-    color:var(--terracotta);
+    color:var(--plum);
     letter-spacing:0.05em;
     text-transform:uppercase;
     margin:0 0 12px;
@@ -553,7 +567,7 @@
   .finding .num{
     font-family:var(--serif);
     font-size:1.3rem;
-    color:var(--terracotta);
+    color:var(--plum);
     display:block;
     margin-bottom:8px;
     line-height:1.3;
@@ -611,7 +625,7 @@
   }
   .step .idx{
     font-family:var(--mono);
-    color:var(--terracotta);
+    color:var(--plum);
     font-size:0.9rem;
     display:block;
     margin-bottom:20px;
@@ -682,20 +696,20 @@
     font-weight:600;
     font-size:0.95rem;
     text-decoration:none;
-    transition:opacity .2s ease, transform .2s ease;
+    transition:background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
   }
   .btn-primary{
-    background:var(--terracotta);
+    background:var(--plum);
     color:#FFFDFC;
-    border:1px solid var(--terracotta);
+    border:1px solid var(--plum);
   }
-  .btn-primary:hover{ opacity:0.9; }
+  .btn-primary:hover{ background:var(--plum-dark); border-color:var(--plum-dark); }
   .btn-secondary{
     background:transparent;
-    color:var(--brown);
-    border:1px solid var(--brown);
+    color:var(--plum);
+    border:1px solid var(--plum);
   }
-  .btn-secondary:hover{ background:var(--beige); }
+  .btn-secondary:hover{ background:var(--plum-tint); }
 
   .contact-meta{
     display:flex;
@@ -805,7 +819,7 @@
           <p>I started in customer-facing roles, but over the years I became just as interested in what happens behind the conversations — the patterns in complaints, the numbers behind service performance, and the decisions teams make from customer feedback.</p>
           <p>Today, I work across customer experience, reporting, and communication, turning messy information into reports, dashboards, and insights that teams can actually use.</p>
           <p class="hero-location">Jakarta, Indonesia</p>
-          <a class="btn btn-secondary hero-cta" href="#portfolio">View Selected Work</a>
+          <a class="btn btn-primary hero-cta" href="#portfolio">View Selected Work</a>
         </div>
       </div>
     </div>
@@ -1047,7 +1061,7 @@
 
         <p class="project-tools">Tools — Google Sheets · Pivot Tables · Canva</p>
 
-        <a class="btn btn-secondary case-study-btn" href="case-studies/customer-feedback-root-cause.pdf" target="_blank" rel="noopener noreferrer">View Full Case Study</a>
+        <a class="btn btn-primary case-study-btn" href="case-studies/customer-feedback-root-cause.pdf" target="_blank" rel="noopener noreferrer">View Full Case Study</a>
 
         <p class="disclosure">This is a fictional portfolio project built with synthetic customer support data for demonstration purposes. No confidential company or customer data is shown.</p>
       </div>
@@ -1074,7 +1088,7 @@
           </div>
         </dl>
 
-        <a class="btn btn-secondary case-study-btn" href="case-studies/nidaa-english-indonesian-translation-portfolio.pdf" target="_blank" rel="noopener noreferrer">View Translation Portfolio</a>
+        <a class="btn btn-primary case-study-btn" href="case-studies/nidaa-english-indonesian-translation-portfolio.pdf" target="_blank" rel="noopener noreferrer">View Translation Portfolio</a>
       </div>
     </div>
   </section>
